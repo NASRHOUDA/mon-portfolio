@@ -8,22 +8,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route par défaut (page d'accueil)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index1.html'));
 });
 
 // Route pour la page "Skills"
 app.get('/skills', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'skills.html'));
+    res.sendFile(path.join(__dirname, 'public', 'skills1.html'));
 });
 
 // Route pour la page "Projects"
 app.get('/projects', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'projects.html'));
+    res.sendFile(path.join(__dirname, 'public', 'projects1.html'));
 });
 
 // Route pour la page "Certifications"
 app.get('/certifications', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'certifications.html'));
+    res.sendFile(path.join(__dirname, 'public', 'certifications1.html'));
 });
 
 // Lancer le serveur
