@@ -31,3 +31,14 @@ app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
 
+return new Response(JSON.stringify({ message: "OK" }), {
+    headers: { "Content-Type": "application/json" }
+});
+export function middleware(req) {
+    try {
+
+    } catch (error) {
+        console.error("Middleware failed", error);
+        return NextResponse.next();
+    }
+}
