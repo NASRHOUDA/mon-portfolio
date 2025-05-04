@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | Houda Nasr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #4299e1;
+            --light-accent: #ebf8ff;
+            --text: #2d3748;
+            --light-text: #718096;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .certs-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -5rem;
+        }
+
+        .certs-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .certs-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            margin: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .cert-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: var(--accent);
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .cert-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-issuer {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .cert-platform {
+            display: inline-block;
+            background-color: var(--light-accent);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: auto;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .cert-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .cert-btn i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .certs-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .certs-hero {
+                padding: 4rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-header {
+                flex-direction: column;
+            }
+
+            .cert-icon {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Houda<span>Nasr</span></div>
+        <ul class="nav-links">
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/index1.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/skills1.html"><i class="fas fa-code"></i>
+                    Skills</a></li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/projects1.html"><i
+                        class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/certifications1.html"><i
+                        class="fas fa-certificate"></i> Certifications</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="certs-hero">
+        <h1>My Certifications</h1>
+        <p>Validating my expertise in cloud computing, big data, and web development</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <section class="certifications-section">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="cert-grid">
+                <!-- Certification 1 -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-title">Hadoop Foundations - Level 1</h3>
+                            <p class="cert-issuer">IBM</p>
+                            <p class="cert-date">2025</p>
+                            <span class="cert-platform">IBM Certification</span>
+                        </div>
+                    </div>
+                    <p style="margin: 1rem 0; color: var(--light-text);">Mastered the fundamentals of Hadoop ecosystem
+                        including HDFS, MapReduce, and YARN for big data processing.</p>
+                    <a href="#" class="cert-btn"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-title">Big Data Foundations - Level 1</h3>
+                            <p class="cert-issuer">IBM</p>
+                            <p class="cert-date">2025</p>
+                            <span class="cert-platform">IBM Certification</span>
+                        </div>
+                    </div>
+                    <p style="margin: 1rem 0; color: var(--light-text);">Gained comprehensive understanding of big data
+                        concepts, tools, and architectures for data analysis.</p>
+                    <a href="#" class="cert-btn"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-title">Microsoft Azure Fundamentals AZ-900</h3>
+                            <p class="cert-issuer">Microsoft</p>
+                            <p class="cert-date">2025</p>
+                            <span class="cert-platform">Udemy Course</span>
+                        </div>
+                    </div>
+                    <p style="margin: 1rem 0; color: var(--light-text);">Acquired foundational knowledge of cloud
+                        concepts and Azure services, architecture, and management.</p>
+                    <a href="#" class="cert-btn"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                </div>
+
+                <!-- Certification 4 -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-title">The Web Developer Bootcamp</h3>
+                            <p class="cert-issuer">Udemy</p>
+                            <p class="cert-date">2024-2025</p>
+                            <span class="cert-platform">Udemy Certification</span>
+                        </div>
+                    </div>
+                    <p style="margin: 1rem 0; color: var(--light-text);">Completed comprehensive training in modern web
+                        development including HTML, CSS, JavaScript, and frameworks.</p>
+                    <a href="#" class="cert-btn"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/index1.html">Home</a>
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/skills1.html">Skills</a>
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/projects1.html">Projects</a>
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/certifications1.html">Certifications</a>
+        </div>
+        <p class="copyright">© 2024 Houda Nasr. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animation for certification cards
+            const certCards = document.querySelectorAll('.cert-card');
+
+            certCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 500 + (index * 100));
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

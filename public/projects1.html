@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Houda Nasr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #4299e1;
+            --light-accent: #ebf8ff;
+            --text: #2d3748;
+            --light-text: #718096;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .projects-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -5rem;
+        }
+
+        .projects-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .projects-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            margin: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            flex: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-item {
+            background-color: var(--light-accent);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .project-link i {
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .projects-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .projects-hero {
+                padding: 4rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Houda<span>Nasr</span></div>
+        <ul class="nav-links">
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/index1.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/index1.html"><i class="fas fa-user"></i>
+                    About</a></li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/skills1.html"><i class="fas fa-code"></i>
+                    Skills</a></li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/projects1.html"><i
+                        class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/certifications1.html"><i class="fas fa-user"></i>
+                    Certifications</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="projects-hero">
+        <h1>My Projects</h1>
+        <p>Showcasing my technical solutions across web development, IoT, and data science</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <section class="projects-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\HP\OneDrive\Desktop\portfolio\public\EASYCROWD.png" alt="Crowd Management">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">EasyCrowd: Crowd Management in Stadiums</h3>
+                        <p class="project-subtitle"> Hackathon project under the theme: "2030 World Cup in Morocco –
+                            Smart Transportation"
+                        </p>
+                        <p class="project-description">Developed an IoT-powered crowd management system using real-time
+                            data analytics to optimize stadium traffic flow and enhance safety measures for large-scale
+                            events.</p>
+                        <div class="tech-stack">
+                            <span class="tech-item">React</span>
+                            <span class="tech-item">Node.js</span>
+                            <span class="tech-item">MySQL</span>
+                            <span class="tech-item">IoT</span>
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\HP\OneDrive\Desktop\portfolio\public\AirSense.png"
+                            alt="Air Quality Monitoring">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AirSense: Air Quality Monitoring in School Environments</h3>
+                        <p class="project-subtitle">Hackathon project under the theme: "Innovative Emergence: Harnessing
+                            AI Potential and Powering Energy Transition"</p>
+                        <p class="project-description">Created an IoT solution with web interface to monitor and analyze
+                            air quality in educational institutions, providing real-time alerts and historical data
+                            visualization.</p>
+                        <div class="tech-stack">
+                            <span class="tech-item">IoT</span>
+                            <span class="tech-item">Web Interface</span>
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Sensors</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Data Science Project">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Python Project for Data Science</h3>
+                        <p class="project-subtitle">IBM Certification Project</p>
+                        <p class="project-description">mplemented a comprehensive data analysis pipeline on a real-world
+                            dataset using JupyterLab and Python's data science stack, including data cleaning,
+                            visualization, and predictive modeling.</p>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Pandas</span>
+                            <span class="tech-item">Matplotlib</span>
+                            <span class="tech-item">Seaborn</span>
+                            <span class="tech-item">scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1399&q=80"
+                            alt="Harmouda Meditation">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Harmouda: Harmonie by Houda</h3>
+                        <p class="project-subtitle">Personal Wellness Project</p>
+                        <p class="project-description">Designed and developed the front-end of a meditation website
+                            featuring guided sessions, timer functionality, and calming visual effects to promote mental
+                            well-being and mindfulness.
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML</span>
+                            <span class="tech-item">CSS</span>
+                            <span class="tech-item">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\HP\OneDrive\Desktop\portfolio\public\portfolio.png" alt="Portfolio Project">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-subtitle">Academic Project</p>
+                        <p class="project-description">Built a responsive personal portfolio showcasing my skills,
+                            projects, and professional journey with clean design and interactive elements.</p>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML</span>
+                            <span class="tech-item">CSS</span>
+                            <span class="tech-item">JavaScript</span>
+                            <span class="tech-item">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\HP\OneDrive\Desktop\portfolio\public\INPTCampusLink.png"
+                            alt="INPT Campus Link">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">INPTCampusLink</h3>
+                        <p class="project-subtitle">Alumni Network Platform</p>
+                        <p class="project-description">Developed the front-end for a networking platform connecting
+                            current INPT students with alumni, featuring user profiles, event listings, and mentorship
+                            opportunities.</p>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML</span>
+                            <span class="tech-item">CSS</span>
+                            <span class="tech-item">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/index1.html">Home</a>
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/skills1.html">Skills</a>
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/projects1.html">Projects</a>
+            <a href="C:/Users/HP/OneDrive/Desktop/portfolio/public/certifications1.html">Certifications</a>
+        </div>
+        <p class="copyright">© 2024 Houda Nasr. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animation for project cards
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 500 + (index * 100));
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
