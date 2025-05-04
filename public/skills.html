@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Houda Nasr - Cloud & IoT Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #4299e1;
+            --light-accent: #ebf8ff;
+            --text: #2d3748;
+            --light-text: #718096;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .skills-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -5rem;
+        }
+
+        .skills-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .skills-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card h3 i {
+            margin-right: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .info-card ul li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background-color: var(--light-accent);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Progress Bars */
+        .skill-level {
+            margin-top: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .skills-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .skills-hero {
+                padding: 4rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Houda<span>Nasr</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="index.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certifications</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="skills-hero">
+        <h1>Technical Expertise</h1>
+        <p>My diverse skill set spans cloud computing, web development, data analysis, and IoT systems</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- TECHNICAL SKILLS SECTION -->
+        <section id="technical-skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="info-grid">
+                <!-- Web Development -->
+                <div class="info-card">
+                    <h3><i class="fas fa-code"></i> Web Development</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript (ES6+)</span>
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Express.js</span>
+                        <span class="tech-item">Bootstrap</span>
+                        <span class="tech-item">Bulma</span>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="info-card">
+                    <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">C</span>
+                        <span class="tech-item">C++</span>
+                        <span class="tech-item">Java</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="info-card">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">SQL</span>
+                        <span class="tech-item">MongoDB</span>
+                        <span class="tech-item">Azure SQL</span>
+
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <!-- Data Science -->
+                <div class="info-card">
+                    <h3><i class="fas fa-chart-line"></i> Data Analysis</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Pandas</span>
+                        <span class="tech-item">Matplotlib</span>
+                        <span class="tech-item">Seaborn</span>
+                        <span class="tech-item">Web Scraping</span>
+                        <span class="tech-item">JupyterLab</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & Big Data -->
+                <div class="info-card">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Big Data (fundamentals learned)</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Azure</span>
+                        <span class="tech-item">Hadoop</span>
+                        <span class="tech-item">HDFS</span>
+                        <span class="tech-item">MapReduce</span>
+                        <span class="tech-item">Kubernetes</span>
+                        <span class="tech-item">Docker</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-laptop"></i> Windows & Linux OS</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Windows</span>
+                        <span class="tech-item">Linux</span>
+                    </div>
+                </div>
+
+                <!-- Section pour les Tools & Frameworks -->
+                <div class="info-card">
+                    <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Git</span>
+                        <span class="tech-item">GitHub</span>
+                        <span class="tech-item">Bootstrap</span>
+                        <span class="tech-item">Bulma</span>
+                        <span class="tech-item">Semantic UI</span>
+                        <span class="tech-item">JupyterLab</span>
+
+                    </div>
+                </div>
+                <!-- IoT & Embedded -->
+                <div class="info-card">
+                    <h3><i class="fas fa-microchip"></i> IoT & Embedded</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">Raspberry Pi</span>
+                        <span class="tech-item">Arduino</span>
+                        <span class="tech-item">Sensors</span>
+                        <span class="tech-item">MQTT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STRENGTHS SECTION -->
+        <section class="section">
+            <h2 class="section-title">Core Strengths</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <ul>
+                        <li><i class="fas fa-lightbulb" style="color: var(--accent); margin-right: 8px;"></i>
+                            <strong>Curiosity & Autonomy:</strong> Self-driven learner
+                        </li>
+                        <li><i class="fas fa-brain" style="color: var(--accent); margin-right: 8px;"></i>
+                            <strong>Analytical Thinking:</strong> Problem-solving mindset
+                        </li>
+                        <li><i class="fas fa-random" style="color: var(--accent); margin-right: 8px;"></i>
+                            <strong>Adaptability:</strong> Quick to learn new technologies
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <ul>
+                        <li><i class="fas fa-users" style="color: var(--accent); margin-right: 8px;"></i>
+                            <strong>Teamwork:</strong> Collaborative spirit
+                        </li>
+                        <li><i class="fas fa-tasks" style="color: var(--accent); margin-right: 8px;"></i>
+                            <strong>Organizational Skills:</strong> Meticulous planning
+                        </li>
+                        <li><i class="fas fa-bullseye" style="color: var(--accent); margin-right: 8px;"></i>
+                            <strong>Precision:</strong> Attention to detail
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES & INTERESTS -->
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-language"></i> Languages</h3>
+                    <div class="skill-level">
+                        <div class="skill-name">
+                            <span>Arabic</span>
+                            <span>Native</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+
+                        <div class="skill-name">
+                            <span>French</span>
+                            <span>Fluent</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+
+                        <div class="skill-name">
+                            <span>English</span>
+                            <span>Fluent</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#about">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Certifications</a>
+        </div>
+        <p class="copyright">© 2024 Houda Nasr. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.info-card');
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Set initial state for animation
+            document.querySelectorAll('.info-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.6s ease';
+            });
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+</body>
+
+</html>

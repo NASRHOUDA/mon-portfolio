@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos | Houda Nasr - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #4299e1;
+            --light-accent: #ebf8ff;
+            --text: #2d3748;
+            --light-text: #718096;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 2rem;
+            color: white;
+        }
+
+        .profile-overlay h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-overlay p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .profile-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-accent);
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .info-card ul li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-info i {
+            width: 30px;
+            color: var(--accent);
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(66, 153, 225, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(66, 153, 225, 0.4);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .profile-overlay h2 {
+                font-size: 1.8rem;
+            }
+
+            .profile-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Houda<span>Nasr</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certifications</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>FIRST-YEAR ENGINEERING STUDENT AT INPT</h1>
+        <p>Passionate about emerging technologies, web development, and data scienc</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- PROFILE CARD -->
+        <section id="about" class="profile-card">
+            <div class="profile-image">
+                <img href="PHOTO.png" alt="Houda Nasr">
+                <div class="profile-overlay">
+                    <h2>Houda Nasr</h2>
+                    <p>Student in Ubiquitous Systems Engineering, Cloud & IoT at INPT</p>
+                </div>
+            </div>
+            <div class="profile-content">
+                <h3 class="section-title">About me</h3>
+                <p>I am a student passionate about innovative technologies, with a strong background in mathematics and
+                    physics. My goal is to combine my technical skills in data science and web development with my
+                    creativity to develop impactful technological solutions.</p>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/houda-nasr-16b9a032a" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:houdanasr520@gmail.com"><i class="fas fa-envelope"></i></a>
+
+                </div>
+
+                <a href="https://drive.google.com/drive/u/0/my-drive" class="btn" download><i
+                        class="fas fa-download"></i>
+                    Download my CV</a>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="section">
+            <h2 class="section-title">Academic Background</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>INPT, Rabat (2024 - ...)</h3>
+                    <ul>
+                        <li>Ubiquitous and Distributed Systems</li>
+                        <li>Specialization in Cloud & IoT</li>
+
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>CPGE MP, Errazi (2022 - 2024)</h3>
+                    <ul>
+                        <li>Preparatory Classes for Grandes Écoles</li>
+                        <li>Mathematics-Physics Track</li>
+                        <li>Strong foundation in mathematics, physics, and critical thinking</li>
+
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Bac SM B, Ibn Mandour (2021 - 2022)</h3>
+                    <ul>
+                        <li>Mathematics Science B Baccalaureate</li>
+                        <li>French Option</li>
+                        <li>Graduated with Honors</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & INTERESTS -->
+        <section class="section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Contact Details</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:houdanasr520@gmail.com">houdanasr520@gmail.com</a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>0627561640</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Casablanca, Maroc</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/houda-nasr-16b9a032a"
+                            target="_blank">houda-nasr-16b9a032a</a>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li><i class="fas fa-shield-alt" style="color: var(--accent); margin-right: 8px;"></i> Taekwondo
+                            (7 years of practice)</li>
+                        <li><i class="fas fa-camera" style="color: var(--accent); margin-right: 8px;"></i> Photography
+                        </li>
+                        <li><i class="fas fa-plane" style="color: var(--accent); margin-right: 8px;"></i> Travel &
+                            Exploration</li>
+                        <li><i class="fas fa-music" style="color: var(--accent); margin-right: 8px;"></i> Music</li>
+                        <li><i class="fas fa-utensils" style="color: var(--accent); margin-right: 8px;"></i>
+                            International Cuisine</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#about">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Certifications</a>
+        </div>
+        <p class="copyright">© 2024 Houda Nasr. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.info-card, .profile-card');
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Set initial state for animation
+            document.querySelectorAll('.info-card, .profile-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.6s ease';
+            });
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+</body>
+
+</html>
