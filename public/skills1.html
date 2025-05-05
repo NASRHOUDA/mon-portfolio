@@ -43,23 +43,29 @@
         }
 
         /* Navbar */
-        .navbar {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+       .navbar {
+            background: rgba(26, 54, 93, 0.98);
+            backdrop-filter: blur(10px);
             color: white;
-            padding: 1.2rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .navbar .logo {
             font-weight: 700;
             font-size: 1.8rem;
             letter-spacing: 1px;
+            position: relative;
+            display: flex;
+            align-items: center;
         }
 
         .logo span {
