@@ -7,7 +7,7 @@
     <title>Projects | Houda Nasr</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
+       :root {
             --primary: #1a365d;
             --secondary: #2c5282;
             --accent: #4299e1;
@@ -18,12 +18,14 @@
             --card-bg: #ffffff;
         }
 
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+       
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
@@ -43,7 +45,7 @@
         }
 
         /* Navbar */
-       .navbar {
+        .navbar {
             background: rgba(26, 54, 93, 0.98);
             backdrop-filter: blur(10px);
             color: white;
@@ -68,8 +70,38 @@
             align-items: center;
         }
 
+        .logo:before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            left: -15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+
         .logo span {
             color: var(--accent);
+
         }
 
         .nav-links {
@@ -106,7 +138,6 @@
         .nav-links li a:hover {
             color: var(--accent);
         }
-
        .hero {
             background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(44, 82, 130, 0.9)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
             color: white;
