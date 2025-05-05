@@ -19,13 +19,21 @@
             --card-bg: #ffffff;
         }
 
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-         /* Custom Scrollbar */
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -85,20 +93,22 @@
                 transform: scale(1);
                 opacity: 1;
             }
+
             50% {
                 transform: scale(1.5);
                 opacity: 0.7;
             }
+
             100% {
                 transform: scale(1);
                 opacity: 1;
             }
         }
 
+
         .logo span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            color: transparent;
+            color: var(--accent);
+
         }
 
         .nav-links {
@@ -124,7 +134,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-gradient);
+            background-color: var(--accent);
             transition: width 0.3s ease;
         }
 
@@ -174,6 +184,7 @@
                 transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100vh) rotate(360deg);
                 opacity: 0;
@@ -198,43 +209,44 @@
             font-weight: 300;
         }
 
-      .hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    animation: fadeIn 2s ease;
-}
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeIn 2s ease;
+        }
 
-.hero-btn {
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;  /* Ajouté ici pour rendre le bouton cliquable */
-}
+        .hero-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            /* Ajouté ici pour rendre le bouton cliquable */
+        }
 
-.hero-btn.primary {
-    background: var(--accent-gradient);
-    color: white;
-    box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
-}
+        .hero-btn.primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
+        }
 
-.hero-btn.secondary {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+        .hero-btn.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-.hero-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(66, 153, 225, 0.5);
-}
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(66, 153, 225, 0.5);
+        }
 
 
         .container {
@@ -510,7 +522,7 @@
         <ul class="nav-links">
             <li><a href="index1.html"><i class="fas fa-home"></i> Home</a>
             </li>
-        
+
             <li><a href="skills1.html"><i class="fas fa-code"></i>
                     Skills</a></li>
             <li><a href="projects1.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
@@ -522,12 +534,14 @@
     <section class="hero">
         <div class="particles" id="particles"></div>
         <h1>FIRST-YEAR ENGINEERING STUDENT AT INPT</h1>
-        <p>Passionate about emerging technologies, web development, and data science</p> <div class="hero-buttons">
+        <p>Passionate about emerging technologies, web development, and data science</p>
+        <div class="hero-buttons">
             <a href="#about" class="hero-btn primary"><i class="fas fa-user"></i> About Me</a>
 
         </div>
-       
-    </section>
+
+            
+    </section>
 
     <!-- MAIN CONTENT -->
     <div class="container">
