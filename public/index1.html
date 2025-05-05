@@ -1,3 +1,7 @@
+Contenu collé
+17.25 Ko •559 lignes
+•
+Le formatage peut être différent de la source
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,21 +15,17 @@
             --primary: #1a365d;
             --secondary: #2c5282;
             --accent: #4299e1;
-            --accent-gradient: linear-gradient(135deg, #4299e1, #7f9cf5);
             --light-accent: #ebf8ff;
             --text: #2d3748;
             --light-text: #718096;
             --background: #f8fafc;
             --card-bg: #ffffff;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 15px 35px rgba(66, 153, 225, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s ease;
         }
 
         body {
@@ -33,85 +33,30 @@
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--background);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary);
         }
 
         /* Navbar */
         .navbar {
-            background: rgba(26, 54, 93, 0.98);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .navbar .logo {
             font-weight: 700;
             font-size: 1.8rem;
             letter-spacing: 1px;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo:before {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            left: -15px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.5);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
         }
 
         .logo span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            color: transparent;
+            color: var(--accent);
         }
 
         .nav-links {
@@ -137,7 +82,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-gradient);
+            background-color: var(--accent);
             transition: width 0.3s ease;
         }
 
@@ -147,12 +92,6 @@
 
         .nav-links li a:hover {
             color: var(--accent);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
         }
 
         /* Hero Section */
@@ -210,17 +149,7 @@
             opacity: 0.95;
             animation: fadeIn 1.5s ease;
             font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            animation: fadeIn 2s ease;
-        }
-
-        .hero-btn {
+        } .hero-btn {
             padding: 0.8rem 2rem;
             border-radius: 50px;
             text-decoration: none;
@@ -236,8 +165,7 @@
             color: white;
             box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
         }
-
-        .hero-btn.secondary {
+.hero-btn.secondary {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             color: white;
@@ -249,7 +177,6 @@
             box-shadow: 0 8px 20px rgba(66, 153, 225, 0.5);
         }
 
-        /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -261,47 +188,29 @@
         /* Profile Card */
         .profile-card {
             background-color: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: var(--card-shadow);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
-            margin: 2rem 0 4rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+            margin-bottom: 4rem;
+            transition: transform 0.3s ease;
         }
 
         .profile-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent-gradient);
+            transform: translateY(-5px);
         }
 
         .profile-image {
             flex: 1;
-            min-width: 350px;
+            min-width: 300px;
             position: relative;
-            overflow: hidden;
         }
 
         .profile-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .profile-card:hover .profile-image img {
-            transform: scale(1.05);
         }
 
         .profile-overlay {
@@ -309,161 +218,109 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
-            padding: 2.5rem 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 2rem;
             color: white;
         }
 
         .profile-overlay h2 {
-            font-size: 2.4rem;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
         }
 
         .profile-overlay p {
-            opacity: 0.95;
-            font-size: 1.2rem;
-            max-width: 90%;
+            opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         .profile-content {
             flex: 1;
-            min-width: 350px;
+            min-width: 300px;
             padding: 3rem;
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
-            margin: 1.8rem 0;
+            margin: 1.5rem 0;
         }
 
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--light-accent);
+            background-color: var(--light-accent);
             color: var(--accent);
-            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: var(--accent-gradient);
+            background-color: var(--accent);
             color: white;
-            transform: translateY(-5px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+            transform: translateY(-3px);
         }
 
         /* Sections */
         .section {
-            margin-bottom: 5rem;
-            position: relative;
-        }
-
-        .section-bg {
-            position: absolute;
-            top: 2rem;
-            right: -5rem;
-            width: 300px;
-            height: 300px;
-            background: var(--accent);
-            opacity: 0.05;
-            border-radius: 50%;
-            z-index: -1;
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
-            font-weight: 700;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 0;
-            width: 60px;
+            width: 50px;
             height: 4px;
-            background: var(--accent-gradient);
+            background-color: var(--accent);
             border-radius: 2px;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .info-card {
             background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .info-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 5px;
-            background: var(--accent-gradient);
-            border-radius: 0 2px 2px 0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
         }
 
         .info-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .info-card:hover::before {
-            width: 10px;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .info-card h3 {
             color: var(--secondary);
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-
-        .info-card h3::before {
-            content: '';
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-right: 10px;
-            opacity: 0.8;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
         }
 
         .info-card ul {
             list-style: none;
-            margin-top: 1rem;
         }
 
         .info-card ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             position: relative;
-            padding-left: 1.8rem;
-            font-size: 1.05rem;
+            padding-left: 1.5rem;
         }
 
         .info-card ul li::before {
@@ -472,84 +329,24 @@
             font-weight: bold;
             position: absolute;
             left: 0;
-            font-size: 1.3rem;
         }
 
         .contact-info {
             display: flex;
             align-items: center;
-            margin-bottom: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info:hover {
-            transform: translateX(5px);
+            margin-bottom: 0.8rem;
         }
 
         .contact-info i {
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 30px;
             color: var(--accent);
-            background: var(--light-accent);
-            border-radius: 50%;
-            margin-right: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info:hover i {
-            background: var(--accent);
-            color: white;
-            transform: rotate(10deg);
-        }
-
-        .contact-info a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent);
-        }
-
-        .interest-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 0.8rem;
-            border-radius: 10px;
-            background: rgba(235, 248, 255, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .interest-item:hover {
-            background: var(--light-accent);
-            transform: translateX(5px);
-        }
-
-        .interest-item i {
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-right: 12px;
-            font-size: 1rem;
-            box-shadow: 0 3px 10px rgba(66, 153, 225, 0.2);
         }
 
         /* Button */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.9rem 2rem;
-            background: var(--accent-gradient);
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--accent);
             color: white;
             border-radius: 50px;
             text-decoration: none;
@@ -557,108 +354,17 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+            box-shadow: 0 4px 10px rgba(66, 153, 225, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(66, 153, 225, 0.4);
         }
 
         .btn i {
-            margin-right: 10px;
-            font-size: 1.1rem;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 3px;
-            height: 100%;
-            background: var(--accent-gradient);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            justify-content: flex-start;
-            padding-right: 30px;
-            position: relative;
-            margin-bottom: 3rem;
-            width: 50%;
-            animation: fadeInLeft 1s ease;
-        }
-
-        .timeline-item:nth-child(even) {
-            align-self: flex-end;
-            justify-content: flex-end;
-            padding-right: 0;
-            padding-left: 30px;
-            margin-left: 50%;
-            margin-right: 0;
-            animation: fadeInRight 1s ease;
-        }
-
-        .timeline-icon {
-            position: absolute;
-            top: 0;
-            right: -15px;
-            width: 30px;
-            height: 30px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 0 0 4px var(--background), 0 0 0 6px var(--accent);
-            z-index: 10;
-        }
-
-        .timeline-item:nth-child(even) .timeline-icon {
-            right: auto;
-            left: -15px;
-        }
-
-        .timeline-content {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 1.8rem;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .timeline-date {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: var(--light-accent);
-            color: var(--accent);
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .timeline-title {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            margin-right: 8px;
         }
 
         /* Footer */
@@ -692,23 +398,11 @@
             font-size: 0.9rem;
         }
 
-
-
         /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(20px);
             }
 
             to {
@@ -717,168 +411,33 @@
             }
         }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 99;
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(66, 153, 225, 0.5);
-        }
-
         /* Responsive */
-        @media (max-width: 992px) {
-            .hero {
-                padding: 10rem 1.5rem 6rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item,
-            .timeline-item:nth-child(even) {
-                width: 100%;
-                margin-left: 0;
-                padding-left: 60px;
-                padding-right: 0;
-            }
-
-            .timeline-icon,
-            .timeline-item:nth-child(even) .timeline-icon {
-                left: 15px;
-                right: auto;
-            }
-        }
-
         @media (max-width: 768px) {
             .navbar {
+                flex-direction: column;
                 padding: 1rem;
             }
 
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: var(--primary);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: right 0.5s ease;
-                z-index: 99;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                z-index: 100;
+                margin-top: 1rem;
+                gap: 1rem;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .hero {
+                padding: 4rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .profile-overlay h2 {
+                font-size: 1.8rem;
             }
 
             .profile-content {
                 padding: 2rem;
-            }
-
-            .info-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-            }
-
-            .footer-section {
-                margin-bottom: 2rem;
-            }
-        }
-
-        /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: #1a202c;
-                --card-bg: #2d3748;
-                --text: #e2e8f0;
-                --light-text: #a0aec0;
-            }
-
-            .info-card,
-            .timeline-content {
-                background: #2d3748;
-            }
-
-            .timeline-date {
-                background: rgba(66, 153, 225, 0.2);
-            }
-
-            .interest-item {
-                background: rgba(66, 153, 225, 0.1);
             }
         }
     </style>
@@ -888,21 +447,18 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">Houda<span>Nasr</span></div>
-        <div class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
         <ul class="nav-links">
             <li><a href="index1.html"><i class="fas fa-home"></i> Home</a>
             </li>
-
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
             <li><a href="skills1.html"><i class="fas fa-code"></i>
                     Skills</a></li>
             <li><a href="projects1.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
             <li><a href="certifications1.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+
         </ul>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="particles" id="particles"></div>
         <h1>FIRST-YEAR ENGINEERING STUDENT AT INPT</h1>
@@ -911,7 +467,7 @@
             <a href="#about" class="hero-btn primary"><i class="fas fa-user"></i> About Me</a>
 
         </div>
-    </section>
+    </section>
 
     <!-- MAIN CONTENT -->
     <div class="container">
@@ -935,7 +491,7 @@
                             class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="mailto:houdanasr520@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+
                 </div>
 
                 <a href="https://drive.google.com/file/d/1Gejncg2hH1_LAQ7B7ZX2bbgUwn29vqne/view?usp=sharing" class="btn"
@@ -944,57 +500,43 @@
             </div>
         </section>
 
-        <!-- EDUCATION TIMELINE -->
+        <!-- EDUCATION SECTION -->
         <section class="section">
-            <div class="section-bg"></div>
-            <h2 class="section-title">Academic Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2024 - Present</span>
-                        <h3 class="timeline-title">INPT, Rabat</h3>
-                        <p>Currently pursuing a degree in Ubiquitous and Distributed Systems with specialization in
-                            Cloud & IoT technologies. Focusing on developing skills in modern distributed systems
-                            architecture.</p>
-                    </div>
+            <h2 class="section-title">Academic Background</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>INPT, Rabat (2024 - ...)</h3>
+                    <ul>
+                        <li>Ubiquitous and Distributed Systems</li>
+                        <li>Specialization in Cloud & IoT</li>
+
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2022 - 2024</span>
-                        <h3 class="timeline-title">CPGE MP, Errazi</h3>
-                        <p>Completed Preparatory Classes for Grandes Écoles in the Mathematics-Physics track. Developed
-                            strong analytical skills and problem-solving abilities through rigorous coursework in
-                            advanced mathematics and physics.</p>
-                    </div>
+                <div class="info-card">
+                    <h3>CPGE MP, Errazi (2022 - 2024)</h3>
+                    <ul>
+                        <li>Preparatory Classes for Grandes Écoles</li>
+                        <li>Mathematics-Physics Track</li>
+                        <li>Strong foundation in mathematics, physics, and critical thinking</li>
+
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2021 - 2022</span>
-                        <h3 class="timeline-title">Bac SM B, Ibn Mandour</h3>
-                        <p>Graduated with Honors from Mathematics Science B Baccalaureate with French Option. Built a
-                            solid foundation in scientific principles that sparked my interest in engineering and
-                            technology.</p>
-                    </div>
+                <div class="info-card">
+                    <h3>Bac SM B, Ibn Mandour (2021 - 2022)</h3>
+                    <ul>
+                        <li>Mathematics Science B Baccalaureate</li>
+                        <li>French Option</li>
+                        <li>Graduated with Honors</li>
+                    </ul>
                 </div>
             </div>
         </section>
-
-
 
         <!-- CONTACT & INTERESTS -->
         <section class="section">
             <div class="info-grid">
                 <div class="info-card">
-                    <h3><i class="fas fa-address-card"></i> Contact Details</h3>
+                    <h3>Contact Details</h3>
                     <div class="contact-info">
                         <i class="fas fa-envelope"></i>
                         <a href="mailto:houdanasr520@gmail.com">houdanasr520@gmail.com</a>
@@ -1014,82 +556,71 @@
                     </div>
                 </div>
                 <div class="info-card">
-                    <h3><i class="fas fa-heart"></i> Interests</h3>
-                    <div class="interest-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Taekwondo (7 years of practice)</span>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-camera"></i>
-                        <span>Photography</span>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-plane"></i>
-                        <span>Travel & Exploration</span>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-music"></i>
-                        <span>Music</span>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-utensils"></i>
-                        <span>International Cuisine</span>
-                    </div>
+                    <h3>Interests</h3>
+                    <ul>
+                        <li><i class="fas fa-shield-alt" style="color: var(--accent); margin-right: 8px;"></i> Taekwondo
+                            (7 years of practice)</li>
+                        <li><i class="fas fa-camera" style="color: var(--accent); margin-right: 8px;"></i> Photography
+                        </li>
+                        <li><i class="fas fa-plane" style="color: var(--accent); margin-right: 8px;"></i> Travel &
+                            Exploration</li>
+                        <li><i class="fas fa-music" style="color: var(--accent); margin-right: 8px;"></i> Music</li>
+                        <li><i class="fas fa-utensils" style="color: var(--accent); margin-right: 8px;"></i>
+                            International Cuisine</li>
+                    </ul>
                 </div>
             </div>
         </section>
+    </div>
 
-        <!-- TESTIMONIALS SECTION -->
-
-        <!-- FOOTER -->
-        
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // Smooth scrolling for anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    });
-                });
-
-                // Animation on scroll
-                const animateOnScroll = () => {
-                    const elements = document.querySelectorAll('.info-card, .profile-card');
-                    elements.forEach(element => {
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const screenPosition = window.innerHeight / 1.2;
-
-                        if (elementPosition < screenPosition) {
-                            element.style.opacity = '1';
-                            element.style.transform = 'translateY(0)';
-                        }
-                    });
-                };
-
-                // Set initial state for animation
-                document.querySelectorAll('.info-card, .profile-card').forEach(element => {
-                    element.style.opacity = '0';
-                    element.style.transform = 'translateY(20px)';
-                    element.style.transition = 'all 0.6s ease';
-                });
-
-                window.addEventListener('scroll', animateOnScroll);
-                animateOnScroll(); // Run once on load
-            });
-        </script>
-</body>
+    <!-- FOOTER -->
     <footer>
-            <div class="footer-links">
-                <a src="index1.html">Home</a>
-                <a src="skills1.html">Skills</a>
-                <a src="projects1.html">Projects</a>
-                <a src="certifications1.html">Certifications</a>
-            </div>
-            <p class="copyright">© 2024 Houda Nasr. All rights reserved.</p>
-        </footer>
+        <div class="footer-links">
+            <a src="index1.html">Home</a>
+            <a src="skills1.html">Skills</a>
+            <a src="projects1.html">Projects</a>
+            <a src="certifications1.html">Certifications</a>
+        </div>
+        <p class="copyright">© 2024 Houda Nasr. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.info-card, .profile-card');
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Set initial state for animation
+            document.querySelectorAll('.info-card, .profile-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.6s ease';
+            });
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+</body>
 
 </html>
